@@ -132,7 +132,37 @@ def add_employee_record(request):
         return render(request, "add_employee_record.html", {'form':form})
     
     else:
-        messages.success(request, "You must be Logedin to add the records")
+        messages.success(request, "You must be Logedin to add the record")
         return redirect('home')
 
 
+def update_company_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Company.objects.get(id=pk)
+        form = AddCompanyRecordForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Company credentials are updated! ")
+            return redirect('home')
+        
+        return render(request, "update_company_record.html", {'form':form})
+
+    else:
+        messages.success(request, "You must be Logedin to update the record")
+        return redirect('home')
+
+
+def update_employee_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Employee.objects.get(id=pk)
+        form = AddEmployeeRecordForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Employee credentials are updated! ")
+            return redirect('home')
+        
+        return render(request, "update_employee_record.html", {'form':form})
+
+    else:
+        messages.success(request, "You must be Logedin to update the record")
+        return redirect('home')
