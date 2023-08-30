@@ -33,7 +33,6 @@ class SignUpForm(UserCreationForm):
 
 
 
-
 # Create Add Company Record Form
 class  AddCompanyRecordForm(forms.ModelForm):
 
@@ -44,9 +43,11 @@ class  AddCompanyRecordForm(forms.ModelForm):
         model = Company
         fields = ('name','address')
 
+
+
+# Create Add Employee Record Form
 class  AddEmployeeRecordForm(forms.ModelForm):
 
-    
     employee_id = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Employee ID", "class":"form-control"}), label="")
     first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class":"form-control"}), label="")
     last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class":"form-control"}), label="")
@@ -57,3 +58,4 @@ class  AddEmployeeRecordForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = ('employee_id','first_name','last_name','company','contact_number','email')
+
