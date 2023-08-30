@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Add Company Record</h1>
+<div class="col-md-6 offset-md-3">
+    <h1>Add Company Record</h1>
+    <br/>
+    <form method="POST" action="{% url 'add_company' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <br/>
+        <button type="submit" class="btn btn-outline-success">Add Company</button>
+    
+    
+    </form>
 
 
-
-
+</div>
 {% endblock %}
