@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Employee Record</h1>
+
+<div class="card">
+    <div class="card-header"><h5 class="card-title">{{ employee_record.first_name }} {{ employee_record.last_name }}</h5></div>
+    <div class="card-body">
+
+        <table class="table table-striped table-hover table-bordered">
+            <tbody class="card-text">
+                <tr>
+                    <th>ID. No.</th>
+                    <td>{{ employee_record.employee_id }}</td>
+                </tr>
+                <tr>
+                    <th>Company Name</th>
+                    <td>{{ employee_record.company.name }}</td>
+                </tr>
+                <tr>
+                    <th>Contact No.</th>
+                    <td>{{ employee_record.contact_number }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ employee_record.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+<a href="{% url 'delete_employee' employee_record.id%}" class="btn btn-danger">Delete</a>
+
+
+{% endblock %}

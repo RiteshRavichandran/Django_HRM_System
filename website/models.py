@@ -13,4 +13,3 @@ class Employee(models.Model):
     contact_number = models.CharField(max_length=10)
     email = models.CharField(max_length=50)
     
-    

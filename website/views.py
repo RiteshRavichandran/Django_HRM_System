@@ -49,3 +49,21 @@ def employee_record(request, pk):
     else:
         messages.success(request, "You must be Logedin to view that page")
         return redirect('home')
+    
+
+def delete_employee_record(request, pk):
+    if request.user.is_authenticated:
+        delete_it = Employee.objects.get(id=pk)
+        delete_it.delete()
+        messages.success(request, "Record Deleted Successfully")
+        return redirect('home')
+    else:
+        messages.success(request, "You must be Logedin to delete the records")
+        return redirect('home')
+    
+
+def add_company_record(request):
+    return render(request, "add_company_record.html", {})
+
+def add_employee_record(request):
+    return render(request, "add_employee_record.html", {})
