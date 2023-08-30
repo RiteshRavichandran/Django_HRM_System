@@ -2,6 +2,7 @@ from typing import Any
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Company, Employee
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -30,3 +31,29 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].label = ''
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
 
+
+
+
+# Create Add Company Record Form
+class  AddCompanyRecordForm(forms.ModelForm):
+
+    name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Company Name", "class":"form-control"}), label="")
+    address = forms.CharField(required=True, max_length=200, widget=forms.widgets.TextInput(attrs={"placeholder":"Address", "class":"form-control"}), label="")
+
+    class Meta:
+        model = Company
+        fields = ('name','address')
+
+class  AddEmployeeRecordForm(forms.ModelForm):
+
+    
+    employee_id = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Employee ID", "class":"form-control"}), label="")
+    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class":"form-control"}), label="")
+    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class":"form-control"}), label="")
+    company = forms.ModelChoiceField(queryset=Company.objects.all(),required=True, widget=forms.widgets.Select(attrs={"class":"form-select"}), empty_label="Select the Company", label="")
+    contact_number = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Contact Number", "class":"form-control"}), label="")
+    email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+
+    class Meta:
+        model = Employee
+        fields = ('employee_id','first_name','last_name','company','contact_number','email')

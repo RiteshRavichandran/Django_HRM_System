@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignUpForm
+from .forms import SignUpForm, AddCompanyRecordForm, AddEmployeeRecordForm
 from .models import Company, Employee
+import re
+
 
 
 def home(request):
@@ -83,7 +85,54 @@ def delete_employee_record(request, pk):
     
 
 def add_company_record(request):
-    return render(request, "add_company_record.html", {})
+    form = AddCompanyRecordForm(request.POST or None)
+
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            if form.is_valid():
+                add_form = form.save()
+                messages.success(request, "Record Added...")
+                return redirect('home')
+        return render(request, "add_company_record.html", {'form':form})
+    else:
+        messages.success(request, "You must be Logedin to add the records")
+        return redirect('home')
 
 def add_employee_record(request):
-    return render(request, "add_employee_record.html", {})
+    form = AddEmployeeRecordForm(request.POST or None)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            if form.is_valid():
+                employee_id = form.cleaned_data['employee_id']
+                first_name = form.cleaned_data['first_name']
+                last_name = form.cleaned_data['last_name']
+                contact_number = form.cleaned_data['contact_number']
+                email = form.cleaned_data['email']
+
+                if not re.match(r'^e\d*$', employee_id):
+                    form.add_error('employee_id', "Employee ID must start with 'e' followed by digits.")
+
+                elif not re.match(r'^[A-Za-z\.]*$', first_name):
+                    form.add_error('first_name', "First Name cannot contain number or special characters except (.)")
+
+                elif not re.match(r'^[A-Za-z\.]*$', last_name):
+                    form.add_error('last_name', "Last Name cannot contain number or special characters except (.)")
+
+                elif not re.match(r'^\d{10}$', contact_number):
+                    form.add_error('contact_number', "Contact Number cannot contain alphabets or special characters, should be exactly 10 characters")
+                
+                elif not email.endswith('.com') or '@' not in email:
+                     form.add_error('email', "Email ID should have \"@\" symbol in between and \".com\" at the end)")
+                
+                else:
+                    add_form = form.save()
+                    messages.success(request, "Record Added...")
+                    return redirect('home')
+                
+        return render(request, "add_employee_record.html", {'form':form})
+    
+    else:
+        messages.success(request, "You must be Logedin to add the records")
+        return redirect('home')
+
+
