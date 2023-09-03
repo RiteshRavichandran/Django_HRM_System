@@ -56,4 +56,4 @@ These instructions will help set up and run the project on your local machine fo
 - [Bootstrap](https://getbootstrap.com/) - Front-end framework
 - [MySQL](https://www.mysql.com/) - Database Management
 
-## Licence
+## License
