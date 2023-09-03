@@ -5,9 +5,7 @@
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Built With](#built-with)
-- [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## About
 Managing employee information efficiently is a cornerstone of successful organizations, ensuring streamlined operations, effective communication, and robust data organization. In today's technologically advanced landscape, automating and digitizing employee management processes has become essential for maximizing productivity and maintaining accurate records. The HR Management System is a software solution designed to address these needs by offering a comprehensive platform to manage and maintain employee details, company information, and associated operations.
@@ -56,5 +54,6 @@ These instructions will help set up and run the project on your local machine fo
 ## Built With
 - [Django](https://www.djangoproject.com/) - The web framework used
 - [Bootstrap](https://getbootstrap.com/) - Front-end framework
+- [MySQL](https://www.mysql.com/) - Database Management
 
-
+## Licence
