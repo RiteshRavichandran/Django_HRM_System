@@ -22,4 +22,14 @@ These instructions will help set up and run the project on your local machine fo
 - [MySQL](https://www.mysql.com/)
 
 ### Installation
-1. Clone the repository: 
+1. Clone the repository: ```https://github.com/RiteshRavichandran/Django_HRM_System.git```
+2. Change the directory to the project folder: ```cd Django_HRM_System```
+3. Create and activate a virtual environment:
+   ```python -m venv venv```
+   ```source venv/bin/activate```
+   On Windows, use `venv\Scripts\activate`
+4. Install project dependencies: ```pip install -r requirements.txt```
+5. Apply migrations: ```python manage.py migrate```
+6. Run the development server: ```python manage.py runserver```
+<br/>Your project should now be accessible at `http://localhost:8000/`.
+
