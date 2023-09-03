@@ -3,7 +3,7 @@
 ## Table of Contents
 - [About](#about)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
+- [Features](#features)
 - [Deployment](#deployment)
 - [Built With](#built-with)
 - [Contributing](#contributing)
@@ -33,3 +33,13 @@ These instructions will help set up and run the project on your local machine fo
 6. Run the development server: ```python manage.py runserver```
 <br/>Your project should now be accessible at `http://localhost:8000/`.
 
+## Features
+ list consists of a few features supported by the project:
+1. The header bar is used to navigate the website.<br/>
+   ![header1](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/9b077dcd-c373-4484-8adf-7b4d426278b4)<br/>
+   ![header2](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/3f1935b2-a289-470b-ae78-d610d6ea0d61)
+
+2. Details of the company can be entered into the website:
+   ![Add_Company](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/2c5a9bde-d12e-4052-a39c-f0f243aca658)
+
+3. 
