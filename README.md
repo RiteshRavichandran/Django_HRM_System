@@ -67,3 +67,4 @@ These instructions will help set up and run the project on your local machine fo
 - [MySQL](https://www.mysql.com/) - Database Management
 
 ## License
+PetNeeds is licensed under the [MIT License](https://github.com/RiteshRavichandran/Django_HRM_System/blob/main/LICENSE). See the LICENSE file for more information.
