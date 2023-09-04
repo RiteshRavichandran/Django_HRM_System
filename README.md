@@ -57,6 +57,9 @@ These instructions will help set up and run the project on your local machine fo
 8. Edit Employee details:
    ![edit_employee](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/046c02e2-7406-48fc-8614-46ca2a36a4a2)
 
+9. Delete Employee:
+   ![delete_employee1](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/242e7cba-aca7-4137-8b49-31eaa7bc8c3b)
+
 
 ## Built With
 - [Django](https://www.djangoproject.com/) - The web framework used
