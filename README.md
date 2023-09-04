@@ -51,6 +51,13 @@ These instructions will help set up and run the project on your local machine fo
 6. Display the details of the company and employees:
    ![Company](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/c187b663-fdbf-41e4-8766-7c95d94bb264)
 
+7. Edit Company details:
+   ![update company](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/e128d3ea-832f-4b0f-9e1c-a60d4d189f74)
+
+8. Edit Employee details:
+   ![edit_employee](https://github.com/RiteshRavichandran/Django_HRM_System/assets/72683075/046c02e2-7406-48fc-8614-46ca2a36a4a2)
+
+
 ## Built With
 - [Django](https://www.djangoproject.com/) - The web framework used
 - [Bootstrap](https://getbootstrap.com/) - Front-end framework
